@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neutral-950 text-neutral-100;
+  }
+  h1 {
+    @apply text-[2.5rem] font-bold;
+  }
+  h2 {
+    @apply text-[2rem] font-bold;
+  }
+  h3 {
+    @apply text-[1.5rem] font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 font-semibold text-center cursor-pointer transition-colors duration-300;
+  }
+  .btn-icon {
+    @apply w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300;
+  }
+  .btn-primary {
+    @apply bg-neutral-100 text-black hover:bg-neutral-300;
+  }
+  .btn-secondary {
+    @apply bg-neutral-900 hover:bg-neutral-800;
+  }
+  .btn-terciary {
+    @apply bg-neutral-950 hover:bg-neutral-900;
+  }
+  .btn-outline-primary {
+    @apply bg-neutral-100 text-black hover:bg-neutral-200;
+  }
+  .btn-outline-secondary {
+    @apply border border-neutral-800 hover:bg-neutral-900;
+  }
+  .btn-red {
+    @apply bg-red-500/10 text-red-500 hover:bg-red-500/20;
+  }
+  .menu {
+    @apply bg-neutral-950 text-base flex flex-col absolute top-16 right-4 border border-neutral-900 shadow-lg py-2 w-[240px];
+  }
+  .menu-item {
+    @apply px-4 py-2 hover:bg-neutral-900 cursor-pointer transition-colors duration-300 flex items-center gap-2;
+  }
+  .link {
+    @apply underline;
+  }
+}
