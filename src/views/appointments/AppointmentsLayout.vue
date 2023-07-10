@@ -2,9 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import Logo from '../../components/Logo.vue'
-import User from '../../components/icons/User.vue'
 import Plus from '../../components/icons/Plus.vue'
-import Logout from '../../components/icons/Logout.vue'
 import { useUserStore } from '../../stores/user'
 import ChevronDownIcon from '../../components/icons/ChevronDownIcon.vue'
 
@@ -16,36 +14,44 @@ const showMenu = ref(false)
   <div class="h-16 flex items-center justify-between px-6">
     <Logo />
     <div
-      @mouseenter="showMenu = !showMenu"
-      class="flex items-center gap-2 hover:bg-neutral-900 rounded-full pr-4 transition-colors duration-300"
+      class="flex items-center gap-2 hover:bg-neutral-900 rounded-full pr-4 transition-colors duration-300 cursor-pointer select-none"
+      @click="showMenu = !showMenu"
     >
       <div
         class="w-10 h-10 bg-neutral-800 rounded-full grid place-content-center"
       >
-        <p>
+        <span>
           {{ userStore.getUserInitials }}
-        </p>
+        </span>
       </div>
-      <p>{{ userStore.getFirstName }}</p>
       <ChevronDownIcon class="w-4 h-4" />
     </div>
   </div>
-  <div
-    v-if="showMenu"
-    @mouseleave="showMenu = !showMenu"
-    @click="showMenu = !showMenu"
-    class="menu"
-  >
-    <RouterLink :to="{ name: 'my-appointments' }" class="menu-item">
-      <User class="w-5 h-5" />
+  <div v-if="showMenu" class="menu">
+    <div class="flex flex-col px-4 py-2">
+      <p>
+        {{ userStore.getUserName }}
+      </p>
+      <p class="text-neutral-500">
+        {{ userStore.getEmail }}
+      </p>
+    </div>
+    <RouterLink
+      :to="{ name: 'my-appointments' }"
+      class="menu-item"
+      @click="showMenu = false"
+    >
       <p>My appointments</p>
     </RouterLink>
-    <RouterLink :to="{ name: 'new-appointment' }" class="menu-item">
-      <Plus class="w-5 h-5" />
+    <RouterLink
+      :to="{ name: 'new-appointment' }"
+      class="menu-item"
+      @click="showMenu = false"
+    >
       <p>New appointment</p>
+      <Plus class="w-4 h-4" />
     </RouterLink>
     <div class="menu-item text-red-500" @click="userStore.logout">
-      <Logout class="w-5 h-5" />
       <p>Logout</p>
     </div>
   </div>

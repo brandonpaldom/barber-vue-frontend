@@ -37,6 +37,10 @@ export const useUserStore = defineStore('user', () => {
     return user.value.name || ''
   })
 
+  const getEmail = computed(() => {
+    return user.value.email || ''
+  })
+
   const getUserInitials = computed(() => {
     return user.value.name
       ? user.value.name
@@ -60,6 +64,7 @@ export const useUserStore = defineStore('user', () => {
     getAppointmentsByUser,
     logout,
     getUserName,
+    getEmail,
     getUserInitials,
     getFirstName,
     noAppointments,

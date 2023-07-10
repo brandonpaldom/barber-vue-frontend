@@ -43,10 +43,10 @@
     @apply bg-red-500/10 text-red-500 hover:bg-red-500/20;
   }
   .menu {
-    @apply bg-neutral-950 text-base flex flex-col absolute top-16 right-4 border border-neutral-900 shadow-lg py-2 w-[240px];
+    @apply bg-neutral-950 text-sm flex flex-col absolute top-16 right-4 border border-neutral-900 shadow-lg py-2 w-[240px];
   }
   .menu-item {
-    @apply px-4 py-2 hover:bg-neutral-900 cursor-pointer transition-colors duration-300 flex items-center gap-2;
+    @apply px-4 py-2 hover:bg-neutral-900 cursor-pointer transition-colors duration-300 flex items-center justify-between gap-2;
   }
   .link {
     @apply underline;
